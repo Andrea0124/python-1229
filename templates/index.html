@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+謝伃婷的網站
+{% endblock %}
+{% block titlemessage %}
+    <h1>YouTube資料分析</h1>
+{% endblock %}
+{% block content %}
+        <table class="table table-striped">
+          <tr><th>排行</th><th>本週發燒影片</th><th>更新時間</th></tr>
+          {% for post in posts %}
+          <tr>
+            <td>{{ post.id }}</td>
+            <td>
+              <a href="/post/{{post.slug}}/">{{ post.title }}</a>
+            </td>
+            <td>
+              {{ post.pub_date }}
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+{% endblock %}

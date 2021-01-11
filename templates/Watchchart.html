@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+全球YouTube觀看次數
+{% endblock %}
+{% block titlemessage %}
+    <h1>全球YouTube觀看次數</h1>
+{% endblock %}
+{% block content %}
+<button class="btn btn-sm">
+    <a href="/Watchchart/">全球YouTube觀看次數</a>
+</button>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
+
+<canvas id="myChart" width="200" height="100"></canvas>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["Baby Shark Dance", "Despacito", "Shape of You", "See You Again", "Johny Johny Yes Papa"],
+        datasets: [{
+            label: '全球YouTube觀看次數前五名', 
+            data: [7635039801, 7151486411, 5142308649, 4907353360, 716436141],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+{% endblock %}

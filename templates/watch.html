@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ watch.title }}
+{% endblock %}
+{% block titlemessage %}
+    <h1>{{ watch.title }}</h1>
+{% endblock %}
+{% block content %}
+      <div class="card">
+        <div class="card-header">
+          {{ watch.title }}
+        </div>
+        <div class="card-body">
+          {{ watch.body | linebreaks }}
+        </div>
+        <div class="card-footer">
+          {{ watch.pub_date }}
+        </div>
+      </div>
+{% endblock %} 

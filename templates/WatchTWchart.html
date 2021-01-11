@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+台灣YouTube觀看次數
+{% endblock %}
+{% block titlemessage %}
+    <h1>台灣YouTube觀看次數</h1>
+{% endblock %}
+{% block content %}
+<button class="btn btn-sm">
+    <a href="/WatchTWchart/">台灣YouTube觀看次數</a>
+</button>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
+
+<canvas id="myChart" width="200" height="100"></canvas>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["Minecraft Real POV 創世神第一人稱真人版", "(喪屍老爸微電影）蜘蛛女孩01 Spider Girl 1。勇敢。", "寶貝日記(蓋房子) MVI 0311", "Zombie with a GoPro 活屍視角愛情動作片【末日希望】", "1億次觀看的業配 !? 第一人稱浪漫活屍片"],
+        datasets: [{
+            label: '台灣YouTube觀看次數前五名', 
+            data: [209912527, 158412354, 117679890, 115264350, 108552451],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+{% endblock %}

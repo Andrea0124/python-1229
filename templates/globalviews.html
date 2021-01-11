@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+謝伃婷的網站
+{% endblock %}
+{% block titlemessage %}
+    <h1>全球YouTube觀看次數前五名</h1>
+{% endblock %}
+{% block content %}
+        <table class="table table-striped">
+          <tr><th>排行</th><th>影片名稱</th><th>更新時間</th></tr>
+          {% for watch in watchs %}
+          <tr>
+            <td>{{ watch.id }}</td>
+            <td>
+              <a href="/watch/{{watch.slug}}/">{{ watch.title }}</a>
+            </td>
+            <td>
+              {{ watch.pub_date }}
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+{% endblock %}
+
